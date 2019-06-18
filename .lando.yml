@@ -1,0 +1,8 @@
+name: duo-blt
+recipe: drupal8
+config:
+  webroot: docroot
+tooling:
+  blt:
+    service: appserver
+cmd: /app/vendor/bin/blt
