@@ -1,15 +1,23 @@
 project:
   machine_name: duo-blt
   prefix: BLT
-  human_name: 'BLTed 10'
+  human_name: 'Duo BLT'
   profile:
     name: lightning
   local:
     protocol: http
-    hostname: 'local.${project.machine_name}.com'
+    hostname: '${project.machine_name}.lndo.site'
+drupal:
+  db:
+    database: default
+    username: user
+    password: user
+    host: db
+    port: 3306
 git:
   default_branch: master
-  remotes: {  }
+  remotes:
+  - 'ssh://codeserver.dev.b3cf3635-3dac-4ebb-8e76-259b3b3feb05@codeserver.dev.b3cf3635-3dac-4ebb-8e76-259b3b3feb05.drush.in:2222/~/repository.git'
 deploy:
   tag_source: true
 drush:

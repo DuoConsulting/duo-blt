@@ -1,0 +1,66 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+
+#=========================================================================
+# In addition to the environment variables defined in this file, also
+# add the following variables in the Circle CI UI.
+#
+# See: https://circleci.com/docs/2.0/environment-variables/
+#
+# HOSTNAME:   The FQDN of the REMOTE git repository on Pantheon.
+# GIT_EMAIL:  The email address applied when making commits.
+# GIT_NAME:   The user name applied when making commits.
+#=========================================================================
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.1.23-apache-node-browsers-legacy
+    steps:
+      - checkout
+      - run:
+          name: Disable xdebug
+          command: |
+              sudo sed -i 's/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini  
+      - run: sudo apt-get install -y libbz2-dev libpng-dev
+      - run: sudo docker-php-ext-install bz2 gd
+      - run: composer install
+      - run: vendor/acquia/blt/bin/blt artifact:build --no-interaction
+
+  deploy:
+    docker:
+      - image: circleci/php:7.1.23-apache-node-browsers-legacy
+    steps:
+      - checkout
+      - run:
+          name: Disable xdebug
+          command: |
+              sudo sed -i 's/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - run: sudo apt-get install -y libbz2-dev libpng-dev
+      - run: sudo docker-php-ext-install bz2 gd
+      - run: composer install
+      - run: echo -e "\n    StrictHostKeyChecking no\n    Port 2222" >> ~/.ssh/config
+      - run: git config --global user.email "$GIT_EMAIL"
+      - run: git config --global user.name "$GIT_NAME"
+      - add_ssh_keys:
+          fingerprints:
+            - "66:ed:bb:7f:48:40:7e:70:7f:45:de:9f:d9:53:7c:5e"
+      - run: vendor/acquia/blt/bin/blt artifact:deploy --branch master --no-interaction
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - develop
+      - deploy:
+          filters:
+            branches:
+              only:
+                - develop
