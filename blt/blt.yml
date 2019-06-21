@@ -3,7 +3,7 @@ project:
   prefix: BLT
   human_name: 'Duo BLT'
   profile:
-    name: lightning
+    name: duo_starter
   local:
     protocol: http
     hostname: '${project.machine_name}.lndo.site'
@@ -29,16 +29,16 @@ drush:
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
-    uninstall: [acquia_connector, shield]
+    uninstall: []
   ci:
     enable: {  }
-    uninstall: [acquia_connector, shield]
+    uninstall: []
   dev:
-    enable: [acquia_connector, shield]
+    enable: []
     uninstall: {  }
   test:
-    enable: [acquia_connector, shield]
+    enable: []
     uninstall: [devel, views_ui]
   prod:
-    enable: [acquia_connector, shield]
+    enable: []
     uninstall: [devel, views_ui]

@@ -7,18 +7,12 @@
         "php": ">=7.1",
         "acquia/blt": "^10.1.0",
         "acquia/drupal-spec-tool": ">=2.0.0",
-        "acquia/lightning": "^3.1.0",
-        "drupal/acquia_connector": "^1.5.0",
-        "drupal/acquia_purge": "^1.0-beta3",
-        "drupal/cog": "^1.0.0",
-        "drupal/config_split": "^1.0.0",
-        "drupal/core": "^8.6.0",
+        "drupal/core": "^8.7.0",
         "drupal/devel": "^2.0.0",
         "drupal/features": "^3.8.0",
-        "drupal/memcache": "2.0-alpha7",
-        "drupal/qa_accounts": "^1.0.0-alpha1",
-        "drupal/seckit": "^1.0.0-alpha2",
-        "drupal/shield": "^1.2.0"
+        "drupal/seckit": "^1.1",
+        "duoconsulting/duo_starter": "dev-master",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
         "acquia/blt-require-dev": "^10.0.0-alpha1"
@@ -27,6 +21,11 @@
         "sort-packages": true
     },
     "extra": {
+        "merge-plugin": {
+            "require": [
+                "docroot/profiles/contrib/duo_starter/composer.json"
+            ]
+        },
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "initial": {
@@ -93,6 +92,11 @@
         "asset-packagist": {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        "duoconsulting/duo_starter": {
+            "url": "https://github.com/DuoConsulting/duo_starter",
+            "type": "git",
+            "reference": "origin/master"
         }
     },
     "minimum-stability": "dev",
