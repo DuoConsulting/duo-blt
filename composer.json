@@ -113,21 +113,6 @@
             "rm -rf vendor composer.lock docroot/core docroot/modules/contrib docroot/profiles/contrib docroot/themes/contrib",
             "@composer clearcache --ansi",
             "@composer install --ansi"
-        ],
-        "remove-git-submodules" : "find . -mindepth 2 -type d -name .git | xargs rm -rf",
-        "pre-install-cmd": [
-          "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-          "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-          "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-          "@remove-git-submodules"
-        ],
-        "post-update-cmd": [
-          "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-          "@remove-git-submodules"
         ]
     }
 }

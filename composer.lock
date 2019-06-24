@@ -12,9 +12,9 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_foundation",
-                "reference": "bfb449fd975049ee7eecd975ff140c58aa07956c"
+                "reference": "6f92a2b6704993db3f581f6a966a4f402eadb192"
             },
-            "type": "drupal-custom-theme",
+            "type": "drupal-theme",
             "license": [
                 "GPL-2.0+"
             ],
@@ -23,7 +23,7 @@
             "keywords": [
                 "Drupal"
             ],
-            "time": "2019-06-20T21:49:59+00:00"
+            "time": "2019-06-24T19:06:23+00:00"
         },
         {
             "name": "acquia/blt",
