@@ -7,6 +7,26 @@
     "content-hash": "f6fc82613e570ffce874ada9ad5e9af3",
     "packages": [
         {
+            "name": "DuoConsulting/duo_blocks",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DuoConsulting/duo_blocks",
+                "reference": "b64579de794dbf59671afef5c442175b38a0558e"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides custom block types.",
+            "homepage": "https://www.duoconsulting.com",
+            "keywords": [
+                "Blocks",
+                "Drupal"
+            ],
+            "time": "2019-06-24T19:14:26+00:00"
+        },
+        {
             "name": "DuoConsulting/duo_foundation",
             "version": "dev-master",
             "source": {
@@ -24,6 +44,46 @@
                 "Drupal"
             ],
             "time": "2019-06-24T19:06:23+00:00"
+        },
+        {
+            "name": "DuoConsulting/duo_layout_page",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DuoConsulting/duo_layout_page",
+                "reference": "e105f235fdeb77625f0959ecdb45a63c19bf18f2"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Installs the Layout Page content type.",
+            "homepage": "https://www.duoconsulting.com",
+            "keywords": [
+                "Drupal",
+                "Layouts"
+            ],
+            "time": "2019-06-24T19:10:47+00:00"
+        },
+        {
+            "name": "DuoConsulting/duo_layouts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DuoConsulting/duo_layouts",
+                "reference": "497032451c1bf3e8c599b4742d6e02ce49228610"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides custom layouts.",
+            "homepage": "https://www.duoconsulting.com",
+            "keywords": [
+                "Drupal",
+                "Layouts"
+            ],
+            "time": "2019-06-24T19:12:05+00:00"
         },
         {
             "name": "acquia/blt",
@@ -5148,7 +5208,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_starter",
-                "reference": "0136dca5ed103ccd2eaff061cc0e0693794aff1f"
+                "reference": "eef9c6b283eb703f6c0f95fefb0afcb575e44fc2"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -5175,7 +5235,10 @@
                 "drupal/token": "^1.5",
                 "drupal/vendor_stream_wrapper": "^1.3",
                 "drupal/video_embed_field": "^2.1",
-                "duoconsulting/duo_foundation": "dev-master"
+                "duoconsulting/duo_blocks": "dev-master",
+                "duoconsulting/duo_foundation": "dev-master",
+                "duoconsulting/duo_layout_page": "dev-master",
+                "duoconsulting/duo_layouts": "dev-master"
             },
             "type": "drupal-profile",
             "extra": {
@@ -5235,7 +5298,7 @@
                 "installation",
                 "profile"
             ],
-            "time": "2019-06-24T18:05:24+00:00"
+            "time": "2019-06-24T19:20:13+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -11478,7 +11541,10 @@
         "drupal/block_field": 15,
         "drupal/contact_storage": 10,
         "drupal/rabbit_hole": 10,
-        "duoconsulting/duo_foundation": 20
+        "duoconsulting/duo_blocks": 20,
+        "duoconsulting/duo_foundation": 20,
+        "duoconsulting/duo_layout_page": 20,
+        "duoconsulting/duo_layouts": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
