@@ -14,6 +14,16 @@ drupal:
     password: user
     host: db
     port: 3306
+  command-hooks:
+    # Executed when front end dependencies should be installed.
+    frontend-reqs:
+      dir: ${docroot}/themes/custom/duo_foundation
+      command: 'npm install && npm install gulp'
+    # Executed when front end assets should be generated.
+    # For example, this will compile SASS to CSS.
+    frontend-assets:
+      dir: ${docroot}/themes/custom/duo_foundation
+      command: node_modules/.bin/gulp
 git:
   default_branch: master
   remotes:
