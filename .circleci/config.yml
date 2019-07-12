@@ -75,8 +75,8 @@ jobs:
       - run: git config --global user.name "$GIT_NAME"
       - run:
           name: Create custom environment variable
-            command: |
-              echo 'export GIT_COMMIT_MSG=\"$(git log --format=oneline -n 1 $CIRCLE_SHA1)\"' >> $BASH_ENV
+          command: |
+            echo 'export GIT_COMMIT_MSG=\"$(git log --format=oneline -n 1 $CIRCLE_SHA1)\"' >> $BASH_ENV
       - run: vendor/acquia/blt/bin/blt artifact:deploy --commit-msg ${GIT_COMMIT_MSG} --tag $CIRCLE_TAG
 
 workflows:
