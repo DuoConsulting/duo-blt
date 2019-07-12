@@ -73,7 +73,7 @@ jobs:
       - run: echo -e "\n    StrictHostKeyChecking no\n    Port 2222" >> ~/.ssh/config
       - run: git config --global user.email "$GIT_EMAIL"
       - run: git config --global user.name "$GIT_NAME"
-      - run: vendor/acquia/blt/bin/blt artifact:deploy --commit-msg "Deploy ${CIRCLE_TAG} to Pantheon." --tag $CIRCLE_TAG
+      - run: vendor/acquia/blt/bin/blt artifact:deploy --commit-msg "Deploy build of github ${CIRCLE_TAG} to host." --tag $CIRCLE_TAG
 
 workflows:
   version: 2
