@@ -29,7 +29,7 @@ git:
   remotes:
   - 'ssh://codeserver.dev.b3cf3635-3dac-4ebb-8e76-259b3b3feb05@codeserver.dev.b3cf3635-3dac-4ebb-8e76-259b3b3feb05.drush.in:2222/~/repository.git'
 deploy:
-  tag_source: true
+  tag_source: false
 drush:
   aliases:
     remote: '${project.machine_name}.test'
