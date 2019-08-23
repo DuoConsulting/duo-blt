@@ -1,12 +1,12 @@
 _______ TESTING ______
 
-# Verizon Privacy Policy Drupal 8
+# DUO BLT
 
-This project contains the source files and tooling instructions for the Verizon Privacy Policy Drupal 8 site.  The project structure and local environment setup is based on [Acquia BLT and Docksal](https://blog.docksal.io/docksal-and-acquia-blt-1552540a3b9f).  The site is hosted on Pantheon and BLT is used to create and push build artifacts to Pantheon during deployments.
+This project contains the source files and tooling instructions for the DUO BLT site.  The project structure and local environment setup is based on [Acquia BLT and Docksal](https://blog.docksal.io/docksal-and-acquia-blt-1552540a3b9f).  The site is hosted on Pantheon and BLT is used to create and push build artifacts to Pantheon during deployments.
 
 ## Getting Started
 
-Before you begin you need to have access to the [Pantheon application](https://dashboard.pantheon.io/sites/2c9fcde8-7aca-4ca5-ba16-b547e1f5ded0) for this project.  You also need to have git and composer installed on your local machine.
+Before you begin you need to have access to the [Pantheon application](https://dashboard.pantheon.io/sites/b3cf3635-3dac-4ebb-8e76-259b3b3feb05) for this project.  You also need to have git and composer installed on your local machine.
 
 1. [Install Docksal](https://docksal.io/installation/#macos-docker-for-mac) using Docker for Mac instead of VirtualBox.
 
@@ -14,27 +14,25 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
 1. [Install Terminus](https://pantheon.io/docs/terminus/install/).  Confirm successful install using this command:
 
-    `terminus site:info verizon-pp`
+    `terminus site:info duo-blt`
 
 1. Clone this repository.
 
-    `$ git clone git@github.com:DuoConsulting/verizon-pp.git`
+    `$ git clone git@github.com:DuoConsulting/duo-blt.git`
 
 1. Initialize your local environment.  This starts up Docksal, initializes your local Drupal instance and downloads the remote database and files from Pantheon to your local.
 
-    `$ cd verizon-pp`
-
-    `$ composer install`
+    `$ cd duo-blt`
 
     `$ fin init`
 
 1. Browse to the site:
 
-    [http://local.verizon-pp.docksal](http://local.verizon-pp.docksal)
+    [http://duo-blt.docksal](http://duo-blt.docksal)
 
 1. Login to the site:
 
-    `$ fin drush --uri=http://local.verizon-pp.docksal uli`
+    `$ fin drush --uri=http://duo-blt.docksal uli`
 
     The [fin utility](https://docs.docksal.io/fin/fin-help/) is used to execute all commands in your local environment.  You can also ssh into your Docksal container using `fin bash`.  Note that composer and git should be run in your native OS **without fin**.
 
@@ -122,8 +120,8 @@ CircleCI is also configured to do a test build any time a feature branch is push
 
 * Pantheon application - [https://dashboard.pantheon.io/sites/2c9fcde8-7aca-4ca5-ba16-b547e1f5ded0](https://dashboard.pantheon.io/sites/2c9fcde8-7aca-4ca5-ba16-b547e1f5ded0)
 * BLT - [https://blt.readthedocs.io/en/stable/](https://blt.readthedocs.io/en/stable/)
-* CircleCI jobs - [https://circleci.com/gh/DuoConsulting/verizon-pp](https://circleci.com/gh/DuoConsulting/verizon-pp)
-* CircleCI configuration - [https://circleci.com/gh/DuoConsulting/verizon-pp/edit](https://circleci.com/gh/DuoConsulting/verizon-pp/edit)
+* CircleCI jobs - [https://circleci.com/gh/DuoConsulting/duo-blt](https://circleci.com/gh/DuoConsulting/duo-blt)
+* CircleCI configuration - [https://circleci.com/gh/DuoConsulting/duo-blt/edit](https://circleci.com/gh/DuoConsulting/duo-blt/edit)
 * Docksal - [https://docksal.io](https://docksal.io)
-* GitHub - [https://github.com/DuoConsulting/verizon-pp](https://github.com/DuoConsulting/verizon-pp)
+* GitHub - [https://github.com/DuoConsulting/duo-blt](https://github.com/DuoConsulting/duo-blt)
 * Jira - TBD
