@@ -7,10 +7,8 @@
         "php": ">=7.2",
         "acquia/blt": "^10.1.0",
         "acquia/drupal-spec-tool": ">=2.0.0",
-        "drupal/core": "^8.7.6",
-        "drupal/devel": "^2.0.0",
+        "drupal/core": "^8.7",
         "drupal/features": "^3.8.0",
-        "drupal/seckit": "^1.1",
         "duoconsulting/duo_starter": "dev-master#8.x-1.2"
     },
     "require-dev": {
@@ -92,8 +90,23 @@
         },
         "duoconsulting/duo_starter": {
             "url": "https://github.com/DuoConsulting/duo_starter.git",
-            "type": "git",
-            "reference": "origin/master"
+            "type": "git"
+        },
+        "duoconsulting/duo_blocks": {
+            "url": "https://github.com/DuoConsulting/duo_blocks",
+            "type": "git"
+        },
+        "duoconsulting/duo_foundation": {
+            "url": "https://github.com/DuoConsulting/duo_foundation",
+            "type": "git"
+        },
+        "duoconsulting/duo_layout_page": {
+            "url": "https://github.com/DuoConsulting/duo_layout_page",
+            "type": "git"
+        },
+        "duoconsulting/duo_layouts": {
+            "url": "https://github.com/DuoConsulting/duo_layouts",
+            "type": "git"
         }
     },
     "minimum-stability": "dev",

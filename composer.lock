@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7dafab8646ad04a49556d1d01285c111",
+    "content-hash": "ceca9ab84b2f48433b08ae0dbace76ea",
     "packages": [
         {
             "name": "DuoConsulting/duo_blocks",
@@ -51,7 +51,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_layout_page",
-                "reference": "5d9e3731730f00e231670d273e0c7f98007d3d2d"
+                "reference": "129022c063e643e961f32b7c869c673e022a6167"
             },
             "type": "drupal-module",
             "license": [
@@ -63,7 +63,7 @@
                 "Drupal",
                 "Layouts"
             ],
-            "time": "2019-08-21T19:11:11+00:00"
+            "time": "2019-08-23T19:39:17+00:00"
         },
         {
             "name": "DuoConsulting/duo_layouts",
@@ -5554,7 +5554,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_starter.git",
-                "reference": "5ce76f3d6ef393c64bd1106924aa6a2fa0407fa9"
+                "reference": "c46f26ed7e19c312714829acc67ab340fbcb6da7"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -5569,6 +5569,7 @@
                 "drupal/config_update": "^1.6",
                 "drupal/contact_block": "^1.4",
                 "drupal/contact_storage": "^1.0@beta",
+                "drupal/devel": "^2.0.0",
                 "drupal/entity_reference_revisions": "^1.6",
                 "drupal/environment_indicator": "^3.6",
                 "drupal/field_group": "^3.0",
@@ -5580,6 +5581,7 @@
                 "drupal/paragraphs": "^1.9",
                 "drupal/pathauto": "^1.4",
                 "drupal/rabbit_hole": "^1.0@beta",
+                "drupal/seckit": "^1.1",
                 "drupal/simple_sitemap": "^3.2",
                 "drupal/smart_trim": "^1.1",
                 "drupal/token": "^1.5",
@@ -5587,7 +5589,7 @@
                 "drupal/video_embed_field": "^2.1",
                 "duoconsulting/duo_blocks": "dev-master#8.x-1.0",
                 "duoconsulting/duo_foundation": "dev-master#8.x-1.0",
-                "duoconsulting/duo_layout_page": "dev-master#8.x-1.0",
+                "duoconsulting/duo_layout_page": "dev-master#8.x-1.1",
                 "duoconsulting/duo_layouts": "dev-master#8.x-1.0"
             },
             "type": "drupal-profile",
@@ -5648,7 +5650,7 @@
                 "installation",
                 "profile"
             ],
-            "time": "2019-08-23T16:49:32+00:00"
+            "time": "2019-08-23T20:20:45+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
