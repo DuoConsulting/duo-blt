@@ -190,6 +190,49 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 }
 
 /**
+ * Add configuration for the Environment Indicator module.
+ */
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  switch ($_ENV['PANTHEON_ENVIRONMENT']) {
+    case 'develop':
+      $config['environment_indicator.indicator']['name'] = 'Develop';
+      $config['environment_indicator.indicator']['bg_color'] = '#039BE5';
+      $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+      break;
+
+    case 'stage':
+      $config['environment_indicator.indicator']['name'] = 'Stage';
+      $config['environment_indicator.indicator']['bg_color'] = '#5B2C6F';
+      $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+      break;
+
+    case 'dev':
+      $config['environment_indicator.indicator']['name'] = 'Dev';
+      $config['environment_indicator.indicator']['bg_color'] = '#424949';
+      $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
+      break;
+
+    case 'test':
+      $config['environment_indicator.indicator']['name'] = 'Test';
+      $config['environment_indicator.indicator']['bg_color'] = '#424949';
+      $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
+      break;
+
+    case 'live':
+      $config['environment_indicator.indicator']['name'] = 'Live!';
+      $config['environment_indicator.indicator']['bg_color'] = '#AE0077';
+      $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
+      break;
+
+    default:
+      // Multidev catchall
+      $config['environment_indicator.indicator']['bg_color'] = '#12A946';
+      $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+      break;
+  }
+}
+
+/**
  * The default list of directories that will be ignored by Drupal's file API.
  *
  * By default ignore node_modules and bower_components folders to avoid issues
