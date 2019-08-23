@@ -6,7 +6,7 @@ project:
     name: duo_starter
   local:
     protocol: http
-    hostname: '${project.machine_name}.lndo.site'
+    hostname: '${env.VIRTUAL_HOST}'
 drupal:
   db:
     database: default
@@ -14,16 +14,16 @@ drupal:
     password: user
     host: db
     port: 3306
-  command-hooks:
-    # Executed when front end dependencies should be installed.
-    frontend-reqs:
-      dir: ${docroot}/themes/custom/duo_foundation
-      command: 'npm install && npm install gulp'
-    # Executed when front end assets should be generated.
-    # For example, this will compile SASS to CSS.
-    frontend-assets:
-      dir: ${docroot}/themes/custom/duo_foundation
-      command: node_modules/.bin/gulp
+command-hooks:
+  # Executed when front end dependencies should be installed.
+  frontend-reqs:
+    dir: ${docroot}/themes/contrib/duo_foundation
+    command: 'npm ci'
+  # Executed when front end assets should be generated.
+  # For example, this will compile SASS to CSS.
+  frontend-assets:
+    dir: ${docroot}/themes/contrib/duo_foundation
+    command: 'npm run build'
 git:
   default_branch: master
   remotes:

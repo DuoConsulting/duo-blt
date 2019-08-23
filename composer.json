@@ -1,18 +1,17 @@
 {
-    "name": "acquia/blt-project",
+    "name": "duoconsulting/duo-blt",
     "type": "project",
-    "description": "Project template for Drupal 8 sites built with BLT.",
+    "description": "Duo project template for Drupal 8 sites built with BLT.",
     "license": "GPL-2.0-only",
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "acquia/blt": "^10.1.0",
         "acquia/drupal-spec-tool": ">=2.0.0",
-        "drupal/core": "^8.7.0",
+        "drupal/core": "^8.7.6",
         "drupal/devel": "^2.0.0",
         "drupal/features": "^3.8.0",
         "drupal/seckit": "^1.1",
-        "duoconsulting/duo_starter": "dev-master",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "duoconsulting/duo_starter": "dev-master#8.x-1.0"
     },
     "require-dev": {
         "acquia/blt-require-dev": "^10.0.0-alpha1"
@@ -24,11 +23,6 @@
         }
     },
     "extra": {
-        "merge-plugin": {
-            "require": [
-                "docroot/profiles/contrib/duo_starter/composer.json"
-            ]
-        },
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "initial": {
@@ -97,7 +91,7 @@
             "url": "https://asset-packagist.org"
         },
         "duoconsulting/duo_starter": {
-            "url": "https://github.com/DuoConsulting/duo_starter",
+            "url": "https://github.com/DuoConsulting/duo_starter.git",
             "type": "git",
             "reference": "origin/master"
         }
