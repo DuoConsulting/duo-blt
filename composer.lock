@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b6383d388d940949d40c04e2f20d29b",
+    "content-hash": "7dafab8646ad04a49556d1d01285c111",
     "packages": [
         {
             "name": "DuoConsulting/duo_blocks",
@@ -5554,7 +5554,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_starter.git",
-                "reference": "36b01bd5bd35d7811d0f8cafd1118e892f8dee78"
+                "reference": "5ce76f3d6ef393c64bd1106924aa6a2fa0407fa9"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -5648,7 +5648,7 @@
                 "installation",
                 "profile"
             ],
-            "time": "2019-08-23T15:36:02+00:00"
+            "time": "2019-08-23T16:49:32+00:00"
         },
         {
             "name": "easyrdf/easyrdf",

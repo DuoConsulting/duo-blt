@@ -11,7 +11,7 @@
         "drupal/devel": "^2.0.0",
         "drupal/features": "^3.8.0",
         "drupal/seckit": "^1.1",
-        "duoconsulting/duo_starter": "dev-master#8.x-1.1"
+        "duoconsulting/duo_starter": "dev-master#8.x-1.2"
     },
     "require-dev": {
         "acquia/blt-require-dev": "^10.0.0-alpha1"
