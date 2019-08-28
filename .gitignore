@@ -134,3 +134,20 @@ drush/sites/.checksums
 
 # Deprecation detector rules
 .rules
+
+# Ignore core git directory #
+web/.git
+docroot/.git
+
+# Ignore vendor git directories/files #
+vendor/**/.git
+vendor/**/.github
+vendor/**/.gitignore
+
+# Ignore contrib module git files #
+docroot/modules/contrib/**/.git
+docroot/modules/contrib/**/.github
+docroot/modules/contrib/**/.gitignore
+web/modules/contrib/**/.git
+web/modules/contrib/**/.github
+web/modules/contrib/**/.gitignore
