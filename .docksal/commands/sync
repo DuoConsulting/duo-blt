@@ -9,17 +9,17 @@
 ##
 ## Example: fin sync dev --skip-updates
 ##
-rm -f /tmp/freebornd8-database.sql.gz
+rm -f /tmp/duo-blt-database.sql.gz
 fin drush cache-clear drush
 echo "Running composer install"
 composer install
 echo "Dropping all tables on local"
 fin drush sql-drop -y
 echo "Downloading database"
-terminus backup:create freebornd8."$1" --element=db
-terminus backup:get freebornd8."$1" --element=db --to=/tmp/freebornd8-database.sql.gz
+terminus backup:create duo-blt."$1" --element=db
+terminus backup:get duo-blt."$1" --element=db --to=/tmp/duo-blt-database.sql.gz
 echo "Importing database"
-gunzip </tmp/freebornd8-database.sql.gz | fin db import 2>/dev/null
+gunzip </tmp/duo-blt-database.sql.gz | fin db import 2>/dev/null
 echo "Clearing Caches"
 fin drush cache-rebuild
 fin drush sqlq "TRUNCATE cache_entity" --no-interaction --ansi
@@ -36,8 +36,8 @@ fi
 if [[ $@ == *include-files* ]]
 then
   echo "Downloading files"
-  terminus backup:create freebornd8."$1" --element=files
-  terminus backup:get freebornd8."$1" --element=files --to=/tmp/files.tar.gz
+  terminus backup:create duo-blt."$1" --element=files
+  terminus backup:get duo-blt."$1" --element=files --to=/tmp/files.tar.gz
   echo "Importing files"
   rm -rf docroot/sites/default/files
   tar xvf /tmp/files.tar.gz -C docroot/sites/default &>/dev/null
@@ -63,4 +63,4 @@ fin drush cache-rebuild
 
 echo "Sync is complete"
 echo "Admin login:"
-fin drush --uri=http://freebornd8.docksal uli
+fin drush --uri=http://duo-blt.docksal uli
