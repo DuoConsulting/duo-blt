@@ -1,0 +1,17 @@
+uuid: 623e9f10-86c8-4bd9-952f-1866833633a6
+langcode: en
+status: false
+dependencies: {  }
+id: develop
+label: develop
+description: 'Settings for the develop environment.'
+folder: ../config/envs/split_develop
+module:
+  dblog: 0
+theme: {  }
+blacklist: {  }
+graylist:
+  - system.logging
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

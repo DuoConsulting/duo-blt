@@ -1,0 +1,19 @@
+uuid: ff593c66-d5ec-42be-92a4-53d552fe5d8f
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: local
+description: 'Settings for local and multidev environments.'
+folder: ../config/envs/split_local
+module:
+  dblog: 0
+  devel: 0
+  kint: 0
+theme: {  }
+blacklist: {  }
+graylist:
+  - system.logging
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

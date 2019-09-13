@@ -728,6 +728,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+$settings['trusted_host_patterns'] = array(
+  '^dev-duo-blt\.pantheonsite\.io/',
+  '^duo-blt\.docksal',
+);
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -755,19 +759,8 @@ $settings['file_scan_ignore_directories'] = [
 $settings['entity_update_batch_size'] = 50;
 
 /**
- * Load local development override configuration, if available.
- *
- * Use settings.local.php to override variables on secondary (staging,
- * development, etc) installations of this site. Typically used to disable
- * caching, JavaScript/CSS compression, re-routing of outgoing emails, and
- * other things that should not happen on development and testing sites.
- *
- * Keep this code block at the end of this file to take full effect.
+ * BLT settings.
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 
 /**
@@ -778,47 +771,85 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
   // Set the configuration folder location.
   $config_directories['sync'] = DRUPAL_ROOT . '/../config/default';
-
-  // Pantheon Env Specific Config - required Environment_Indicator module!
-  switch ($_ENV['PANTHEON_ENVIRONMENT']) {
-    case 'develop':
-      $config['environment_indicator.indicator']['name'] = 'Develop';
-      $config['environment_indicator.indicator']['bg_color'] = '#0C4182';
-      $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
-      break;   
-    case 'stage':
-      $config['environment_indicator.indicator']['name'] = 'Stage';
-      $config['environment_indicator.indicator']['bg_color'] = '#41054D';
-      $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
-      break;  
-    case 'dev':
-      $config['environment_indicator.indicator']['name'] = 'Dev';
-      $config['environment_indicator.indicator']['bg_color'] = '#EB5C03';
-      $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
-      break;
-    case 'test':
-      $config['environment_indicator.indicator']['name'] = 'Test';
-      $config['environment_indicator.indicator']['bg_color'] = '#D0021B';
-      $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
-      break;
-    case 'live':
-      $config['environment_indicator.indicator']['name'] = 'Live!';
-      $config['environment_indicator.indicator']['bg_color'] = '#000000';
-      $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
-      break;
-    default:
-      // Multidev catchall
-      $config['environment_indicator.indicator']['name'] = 'Multidev';
-      $config['environment_indicator.indicator']['bg_color'] = '#efd01b';
-      $config['environment_indicator.indicator']['fg_color'] = '#000000';
-      break;
-    }
 }
 
 /**
  * No private files for this site.
  */
 unset($settings['file_private_path']);
+
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  $detected_environment = $_ENV['PANTHEON_ENVIRONMENT'];
+} else {
+  $detected_environment = 'local';
+}
+
+// Additional environment-specific settings.
+$config['config_split.config_split.local']['status']= FALSE;
+
+switch ($detected_environment) {
+  case 'develop':
+  case 'dev':
+    // Develop-specific settings.
+    // Environment indicator.
+    $config['environment_indicator.indicator']['name'] = 'Develop';
+    $config['environment_indicator.indicator']['bg_color'] = 'green';
+    $config['environment_indicator.indicator']['fg_color'] = 'white';
+
+    // Config split.
+    $config['config_split.config_split.develop']['status']= TRUE;
+
+    break;
+  case 'stage':
+  case 'test':
+    // Stage-specific settings.
+    // Environment indicator.
+    $config['environment_indicator.indicator']['name'] = 'Stage';
+    $config['environment_indicator.indicator']['bg_color'] = 'yellow';
+    $config['environment_indicator.indicator']['fg_color'] = 'black';
+
+    // Config split.
+    $config['config_split.config_split.stage']['status']= TRUE;
+
+    break;
+  case 'live':
+  case 'prod':
+    // Production-specific settings.
+    // Environment indicator.
+    $config['environment_indicator.indicator']['name'] = 'Prod';
+    $config['environment_indicator.indicator']['bg_color'] = 'red';
+    $config['environment_indicator.indicator']['fg_color'] = 'white';
+
+    // Config split.
+    $config['config_split.config_split.production']['status']= TRUE;
+
+    break;
+  default:
+    // Local-specific settings.
+    // Environment indicator.
+    $config['environment_indicator.indicator']['name'] = 'Local/Multidev';
+    $config['environment_indicator.indicator']['bg_color'] = 'purple';
+    $config['environment_indicator.indicator']['fg_color'] = 'white';
+
+    // Config split.
+    $config['config_split.config_split.local']['status']= TRUE;
+
+    break;
+}
+
+/**
+ * Load local development override configuration, if available.
+ *
+ * Use settings.local.php to override variables on secondary (staging,
+ * development, etc) installations of this site. Typically used to disable
+ * caching, JavaScript/CSS compression, re-routing of outgoing emails, and
+ * other things that should not happen on development and testing sites.
+ *
+ * Keep this code block at the end of this file to take full effect.
+ */
+if (file_exists(__DIR__ . '/local.settings.php')) {
+  include __DIR__ . '/local.settings.php';
+}
 #
 # IMPORTANT
 # Do not include additional settings here. Instead, add them to settings included

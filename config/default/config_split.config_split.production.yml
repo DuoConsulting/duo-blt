@@ -1,0 +1,17 @@
+uuid: a540caea-96f4-4c74-a786-073d6e6107c7
+langcode: en
+status: false
+dependencies: {  }
+id: production
+label: production
+description: 'Settings for the live/prod environment.'
+folder: ../config/envs/split_prod
+module:
+  syslog: 0
+theme: {  }
+blacklist: {  }
+graylist:
+  - system.performance
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

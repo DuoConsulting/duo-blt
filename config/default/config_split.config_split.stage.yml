@@ -1,0 +1,18 @@
+uuid: 04d6be21-8636-49cc-bf38-31749aeb33d0
+langcode: en
+status: false
+dependencies: {  }
+id: stage
+label: stage
+description: 'Settings for the develop environment.'
+folder: ../config/envs/split_stage
+module:
+  dblog: 0
+theme: {  }
+blacklist: {  }
+graylist:
+  - system.logging
+  - system.performance
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0
