@@ -1,12 +1,10 @@
-_______ TESTING ______
+# Duo-BLT
 
-# DUO BLT
-
-This project contains the source files and tooling instructions for the DUO BLT site.  The project structure and local environment setup is based on [Acquia BLT and Docksal](https://blog.docksal.io/docksal-and-acquia-blt-1552540a3b9f).  The site is hosted on Pantheon and BLT is used to create and push build artifacts to Pantheon during deployments.
+This project contains the source files and tooling instructions for the Verizon Privacy Policy Drupal 8 site.  The project structure and local environment setup is based on [Acquia BLT and Docksal](https://blog.docksal.io/docksal-and-acquia-blt-1552540a3b9f).  The site is hosted on Pantheon and BLT is used to create and push build artifacts to Pantheon during deployments.
 
 ## Getting Started
 
-Before you begin you need to have access to the [Pantheon application](https://dashboard.pantheon.io/sites/b3cf3635-3dac-4ebb-8e76-259b3b3feb05) for this project.  You also need to have git and composer installed on your local machine.
+Before you begin you need to have access to the [Pantheon application](https://dashboard.pantheon.io/sites/2c9fcde8-7aca-4ca5-ba16-b547e1f5ded0) for this project.  You also need to have git and composer installed on your local machine.
 
 1. [Install Docksal](https://docksal.io/installation/#macos-docker-for-mac) using Docker for Mac instead of VirtualBox.
 
@@ -24,6 +22,8 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
     `$ cd duo-blt`
 
+    `$ composer install`
+
     `$ fin init`
 
 1. Browse to the site:
@@ -38,7 +38,7 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
 ## Next Steps
 
-Use your normal development workflow EXCEPT do **NOT** commit CSS files to the repo.  Push feature branches to the GitHub repo and [create pull requests](https://help.github.com/articles/creating-a-pull-request/) using stage as the base branch and your feature branch as the head branch.  After pull requests are merged, switch back to the develop branch and git pull.  Then start another feature branch.  Please note that the repo installs git hooks that validate commits follow [Drupal coding standards](https://www.drupal.org/docs/develop/standards/coding-standards).
+Use your normal development workflow EXCEPT do **NOT** commit CSS files to the repo.  Push feature branches to the GitHub repo and [create pull requests](https://help.github.com/articles/creating-a-pull-request/) using master as the base branch and your feature branch as the head branch.  After pull requests are merged, switch back to the master branch and git pull.  Then start another feature branch.  Please note that the repo installs git hooks that validate commits follow [Drupal coding standards](https://www.drupal.org/docs/develop/standards/coding-standards).
 
 1. To download a new module:
 
@@ -72,9 +72,9 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
 1. Periodically you should resync to Pantheon to pick up the latest changes there.  Run these commands to resync, keep in mind **this will blow away any existing test content** you have installed to your local Drupal instance.
 
-    `$ git checkout develop`
+    `$ git checkout master`
 
-    `$ git pull origin develop`
+    `$ git pull origin maasater`
 
     `$ fin sync dev`
 
@@ -94,9 +94,7 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
     You will then need to commit composer.lock and possibly blt/.schema_version if it changed.
 
-    The command above updates more than just Drupal core because it is important to keep Acquia BLT and Acquia Lightning in sync with the core version of Drupal.  Otherwise you can run into conflicts between components of your technology stack. If drupal/core does not update after running a composer update command, check these pages for information about resolving any dependency blocks:
-
-    [Acquia Lightning releases](https://github.com/acquia/lightning/releases)
+    The command above updates more than just Drupal core because it is important to keep Acquia BLT in sync with the core version of Drupal.  Otherwise, you can run into conflicts between components of your technology stack. If drupal/core does not update after running a composer update command, check this page for information about resolving any dependency blocks:
 
     [General overview of updating core via composer](https://www.drupal.org/docs/8/update/update-core-via-composer)
 
@@ -112,7 +110,7 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
 ## CircleCI
 
-This project has CircleCI integration included.  When a pull request is merged to the develop branch in GitHub, CircleCI is notified and automatically creates a build artifact and pushes it to the master deployment branch on Pantheon.  A post code deployment script then executes within Pantheon to automatically import any configuration updates that are pending as a result of the deployment.
+This project has CircleCI integration included.  Anytime a branch or tag is pushed to GitHub, CircleCI will follow up with a build (for feature branches) or a build-and-deploy (for other branches and tags).
 
 CircleCI is also configured to do a test build any time a feature branch is pushed to GitHub.  If the feature branch is part of a pull request, GitHub will display the results of the test build on the pull request page in GitHub.  See the Resource links at the bottom of this README to access the CircleCI jobs and configuration if direct access is needed.
 
@@ -124,4 +122,8 @@ CircleCI is also configured to do a test build any time a feature branch is push
 * CircleCI configuration - [https://circleci.com/gh/DuoConsulting/duo-blt/edit](https://circleci.com/gh/DuoConsulting/duo-blt/edit)
 * Docksal - [https://docksal.io](https://docksal.io)
 * GitHub - [https://github.com/DuoConsulting/duo-blt](https://github.com/DuoConsulting/duo-blt)
-* Jira - TBD
+* Jira - [https://teamduo.atlassian.net/projects/VZPP](https://teamduo.atlassian.net/projects/VZPP)
+* Confluence
+  * [Duo-BLT](https://teamduo.atlassian.net/wiki/spaces/TT/pages/100335617/duo-blt)
+  * [Duo Starter Installation Profile](https://teamduo.atlassian.net/wiki/spaces/TT/pages/96698369/Duo+Starter+Installation+Profile)
+  * [Layout Builder](https://teamduo.atlassian.net/wiki/spaces/TT/pages/109478120/Layout+Builder)
