@@ -38,7 +38,7 @@ drush:
   default_alias: '${drush.aliases.local}'
 modules:
   local:
-    enable: [dblog, devel, seckit, views_ui]
+    enable: []
     uninstall: []
   ci:
     enable: {  }
@@ -48,7 +48,7 @@ modules:
     uninstall: {  }
   test:
     enable: []
-    uninstall: [devel, views_ui]
+    uninstall: []
   prod:
     enable: []
-    uninstall: [devel, views_ui]
+    uninstall: []
