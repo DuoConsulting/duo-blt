@@ -25,6 +25,7 @@ jobs:
           name: Disable xdebug
           command: |
               sudo sed -i 's/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - run: sudo apt-get update
       - run: sudo apt-get install -y libbz2-dev libpng-dev rsync
       - run: sudo docker-php-ext-install bz2 gd
       - add_ssh_keys:
@@ -42,6 +43,7 @@ jobs:
           name: Disable xdebug
           command: |
               sudo sed -i 's/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - run: sudo apt-get update
       - run: sudo apt-get install -y libbz2-dev libpng-dev rsync
       - run: sudo docker-php-ext-install bz2 gd
       - add_ssh_keys:
@@ -63,6 +65,7 @@ jobs:
           name: Disable xdebug
           command: |
             sudo sed -i 's/^zend_extension/;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - run: sudo apt-get update
       - run: sudo apt-get install -y libbz2-dev libpng-dev rsync
       - run: sudo docker-php-ext-install bz2 gd
       - add_ssh_keys:
