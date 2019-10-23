@@ -9,7 +9,7 @@
         "acquia/drupal-spec-tool": ">=2.0.0",
         "drupal/core": "^8.7",
         "drupal/features": "^3.8",
-        "duoconsulting/duo_starter": "dev-master#8.x-1.3"
+        "duoconsulting/duo_starter": "dev-master#8.x-1.4"
     },
     "require-dev": {
         "acquia/blt-require-dev": "^10.0.0-alpha1"
