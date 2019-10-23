@@ -1,6 +1,6 @@
 # Duo-BLT
 
-This project contains the source files and tooling instructions for the Verizon Privacy Policy Drupal 8 site.  The project structure and local environment setup is based on [Acquia BLT and Docksal](https://blog.docksal.io/docksal-and-acquia-blt-1552540a3b9f).  The site is hosted on Pantheon and BLT is used to create and push build artifacts to Pantheon during deployments.
+This project contains the source files and tooling instructions for the Duo-BLT site.  The project structure and local environment setup is based on [Acquia BLT and Docksal](https://blog.docksal.io/docksal-and-acquia-blt-1552540a3b9f).  The site is hosted on Pantheon, and BLT is used to create and push build artifacts to Pantheon during deployments.
 
 ## Getting Started
 
@@ -90,7 +90,7 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
 1. To update Drupal core:
 
-    `$ composer update acquia/blt drupal/core drupal/lightning_core webflo/drupal-core-require-dev --with-dependencies`
+    `$ composer update acquia/blt drupal/core webflo/drupal-core-require-dev --with-dependencies`
 
     You will then need to commit composer.lock and possibly blt/.schema_version if it changed.
 
