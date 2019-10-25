@@ -18,6 +18,22 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
     `$ git clone git@github.com:DuoConsulting/duo-blt.git`
 
+1. Configure hosting for running `fin pull`. Add a docksal-local.env file within the .docksal directory and add your credentials:
+
+    Pantheon:
+    g
+    `SECRET_TERMINUS_TOKEN='TOKEN_GOES_HERE'`
+
+     or
+
+    Acquia:
+    ```
+    SECRET_ACAPI_EMAIL='user@duoconsulting.com'
+    SECRET_ACAPI_KEY='KEY_GOES_HERE'
+    ```
+
+    Please see the [fin pull documentation](https://docs.docksal.io/fin/fin-pull/) for more information about the Docksal command and [Pantheon's Machine Token Documentation](https://pantheon.io/docs/machine-tokens) or [Acquia's API v1 Authentication Documentation](https://docs.acquia.com/acquia-cloud/develop/api/auth/v1/) to obtain tokens.
+
 1. Initialize your local environment.  This starts up Docksal, initializes your local Drupal instance and downloads the remote database and files from Pantheon to your local.
 
     `$ cd duo-blt`
@@ -26,7 +42,7 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
     `$ fin init`
     
-    `$ fin sync dev`
+    `$ fin pull db`
 
 1. Browse to the site:
 
@@ -72,17 +88,17 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
     `$ npm run watch`
 
-1. Periodically you should re-sync to Pantheon to pick up the latest changes there.  Run these commands to synchronize, keep in mind **this will blow away any existing test content** you have installed to your local Drupal instance.
+1. Periodically you should pull from Pantheon to pick up the latest changes there.  Run these commands to pull, keeping in mind **this will blow away any existing test content** you have installed to your local Drupal instance.
 
     `$ git checkout master`
 
     `$ git pull origin master`
 
-    `$ fin sync dev`
+    `$ fin pull db`
 
-    OR
+    You can also pull files:
 
-    `$ fin sync dev --include-files` to include files from remote.
+    `$ fin pull files`
 
 ## Updating Drupal
 
