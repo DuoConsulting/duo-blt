@@ -25,6 +25,8 @@ Before you begin you need to have access to the [Pantheon application](https://d
     `$ composer install`
 
     `$ fin init`
+    
+    `$ fin sync dev`
 
 1. Browse to the site:
 
@@ -70,11 +72,11 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
     `$ npm run watch`
 
-1. Periodically you should resync to Pantheon to pick up the latest changes there.  Run these commands to resync, keep in mind **this will blow away any existing test content** you have installed to your local Drupal instance.
+1. Periodically you should re-sync to Pantheon to pick up the latest changes there.  Run these commands to synchronize, keep in mind **this will blow away any existing test content** you have installed to your local Drupal instance.
 
     `$ git checkout master`
 
-    `$ git pull origin maasater`
+    `$ git pull origin master`
 
     `$ fin sync dev`
 
