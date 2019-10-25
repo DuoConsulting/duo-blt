@@ -780,6 +780,8 @@ unset($settings['file_private_path']);
 
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
   $detected_environment = $_ENV['PANTHEON_ENVIRONMENT'];
+} elseif (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $detected_environment = $_ENV['AH_SITE_ENVIRONMENT'];
 } else {
   $detected_environment = 'local';
 }
@@ -788,48 +790,82 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 $config['config_split.config_split.local']['status']= FALSE;
 
 switch ($detected_environment) {
+
   case 'develop':
-  case 'dev':
     // Develop-specific settings.
+
     // Environment indicator.
     $config['environment_indicator.indicator']['name'] = 'Develop';
-    $config['environment_indicator.indicator']['bg_color'] = 'green';
-    $config['environment_indicator.indicator']['fg_color'] = 'white';
+    $config['environment_indicator.indicator']['bg_color'] = '#0E6655';
+    $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
 
     // Config split.
     $config['config_split.config_split.develop']['status']= TRUE;
 
     break;
+  case 'dev':
+    // Dev-specific settings.
+
+    // Environment indicator.
+    $config['environment_indicator.indicator']['name'] = 'Dev';
+    $config['environment_indicator.indicator']['bg_color'] = '#E91E63';
+    $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+
+    // Config split - shared with Develop environment.
+    $config['config_split.config_split.develop']['status']= TRUE;
+
+    break;
   case 'stage':
-  case 'test':
     // Stage-specific settings.
+
     // Environment indicator.
     $config['environment_indicator.indicator']['name'] = 'Stage';
-    $config['environment_indicator.indicator']['bg_color'] = 'yellow';
-    $config['environment_indicator.indicator']['fg_color'] = 'black';
+    $config['environment_indicator.indicator']['bg_color'] = '#935116';
+    $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
 
     // Config split.
+    $config['config_split.config_split.stage']['status']= TRUE;
+
+    break;
+  case 'test':
+    // Test-specific settings.
+
+    // Environment indicator.
+    $config['environment_indicator.indicator']['name'] = 'Test';
+    $config['environment_indicator.indicator']['bg_color'] = '#E91E63';
+    $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+
+    // Config split - shared with Stage environment.
     $config['config_split.config_split.stage']['status']= TRUE;
 
     break;
   case 'live':
   case 'prod':
     // Production-specific settings.
+
     // Environment indicator.
-    $config['environment_indicator.indicator']['name'] = 'Prod';
-    $config['environment_indicator.indicator']['bg_color'] = 'red';
-    $config['environment_indicator.indicator']['fg_color'] = 'white';
+    $config['environment_indicator.indicator']['name'] = 'Live!';
+    $config['environment_indicator.indicator']['bg_color'] = '#AE0077';
+    $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
 
     // Config split.
     $config['config_split.config_split.production']['status']= TRUE;
 
     break;
   default:
+    // Multidev-specific settings.
+    if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+      $config['environment_indicator.indicator']['name'] = 'Multidev';
+      $config['environment_indicator.indicator']['bg_color'] = '#3D004B';
+      $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+    }
+
     // Local-specific settings.
+
     // Environment indicator.
-    $config['environment_indicator.indicator']['name'] = 'Local/Multidev';
-    $config['environment_indicator.indicator']['bg_color'] = 'purple';
-    $config['environment_indicator.indicator']['fg_color'] = 'white';
+    $config['environment_indicator.indicator']['name'] = 'Local';
+    $config['environment_indicator.indicator']['bg_color'] = '#00294F';
+    $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
 
     // Config split.
     $config['config_split.config_split.local']['status']= TRUE;
