@@ -124,7 +124,7 @@ CircleCI is also configured to do a test build any time a feature branch is push
 * CircleCI configuration - [https://circleci.com/gh/DuoConsulting/duo-blt/edit](https://circleci.com/gh/DuoConsulting/duo-blt/edit)
 * Docksal - [https://docksal.io](https://docksal.io)
 * GitHub - [https://github.com/DuoConsulting/duo-blt](https://github.com/DuoConsulting/duo-blt)
-* Jira - [https://teamduo.atlassian.net/projects/VZPP](https://teamduo.atlassian.net/projects/VZPP)
+* Jira - [https://teamduo.atlassian.net/projects/TT](https://teamduo.atlassian.net/projects/TT)
 * Confluence
   * [Duo-BLT](https://teamduo.atlassian.net/wiki/spaces/TT/pages/100335617/duo-blt)
   * [Duo Starter Installation Profile](https://teamduo.atlassian.net/wiki/spaces/TT/pages/96698369/Duo+Starter+Installation+Profile)
