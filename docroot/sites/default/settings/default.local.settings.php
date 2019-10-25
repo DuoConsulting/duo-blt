@@ -7,30 +7,18 @@
 
 use Drupal\Component\Assertion\Handle;
 
-$db_name = '${drupal.db.database}';
-if (isset($_acsf_site_name)) {
-  $db_name .= '_' . $_acsf_site_name;
-}
-
 /**
- * Database configuration.
+ * Docksal default database configuration.
  */
-$databases = [
-  'default' =>
-  [
-    'default' =>
-    [
-      'database' => $db_name,
-      'username' => '${drupal.db.username}',
-      'password' => '${drupal.db.password}',
-      'host' => '${drupal.db.host}',
-      'port' => '${drupal.db.port}',
-      'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-      'driver' => 'mysql',
-      'prefix' => '',
-    ],
-  ],
-];
+$databases['default']['default'] = array (
+  'database' => 'default',
+  'username' => 'user',
+  'password' => 'user',
+  'host' => 'db',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+  'prefix' => '',
+);
 
 $dir = dirname(DRUPAL_ROOT);
 
@@ -172,3 +160,10 @@ if (isset($_acsf_site_name)) {
 $settings['trusted_host_patterns'] = [
   '^.+$',
 ];
+
+/**
+ * Environment Indicator configuration.
+ */
+$config['environment_indicator.indicator']['bg_color'] = '#00294F';
+$config['environment_indicator.indicator']['fg_color'] = '#ffffff';
+$config['environment_indicator.indicator']['name'] = 'Local Dev';
