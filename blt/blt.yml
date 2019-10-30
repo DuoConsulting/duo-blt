@@ -1,7 +1,7 @@
 project:
   machine_name: duo-blt
-  prefix: BLT
-  human_name: 'Duo BLT'
+  prefix: TT
+  human_name: 'Duo-BLT'
   profile:
     name: duo_starter
   local:
