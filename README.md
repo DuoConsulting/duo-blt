@@ -21,7 +21,6 @@ Before you begin you need to have access to the [Pantheon application](https://d
 1. Configure hosting for running `fin pull`. Add a docksal-local.env file within the .docksal directory and add your credentials:
 
     Pantheon:
-    g
     `SECRET_TERMINUS_TOKEN='TOKEN_GOES_HERE'`
 
      or
@@ -38,8 +37,6 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
     `$ cd duo-blt`
 
-    `$ composer install`
-
     `$ fin init`
     
     `$ fin pull db`
@@ -50,9 +47,19 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
 1. Login to the site:
 
-    `$ fin drush --uri=http://duo-blt.docksal uli`
+    `$ fin drush uli`
 
-    The [fin utility](https://docs.docksal.io/fin/fin-help/) is used to execute all commands in your local environment.  You can also ssh into your Docksal container using `fin bash`.  Note that composer and git should be run in your native OS **without fin**.
+    The [fin utility](https://docs.docksal.io/fin/fin-help/) is used to execute all commands in your local environment.  You can also ssh into your Docksal container using `fin bash`.  Note that git should be run in your native OS **without fin**.
+
+1. To ensure that your local development environment has all caching disabled (so that changes to template files show up without a cache-rebuild, for example), uncomment the following two lines in /docroot/sites/default/settings/local.settings.php:
+
+    `$settings['cache']['bins']['render'] = 'cache.backend.null';` (line 77)
+    
+    `$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';` (line 85)
+
+    ...and add the following line to local.settings.php:
+
+    `$settings['cache']['bins']['page'] = 'cache.backend.null';`
 
 ## Next Steps
 
@@ -60,7 +67,7 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
 1. To download a new module:
 
-    `$ composer require drupal/modulename`
+    `$ fin composer require drupal/modulename`
 
     You will then need to commit composer.json and composer.lock.
 
@@ -104,11 +111,11 @@ Use your normal development workflow EXCEPT do **NOT** commit CSS files to the r
 
 1. To update a module:
 
-    `$ composer update drupal/modulename`
+    `$ fin composer update drupal/modulename`
 
 1. To update Drupal core:
 
-    `$ composer update acquia/blt drupal/core webflo/drupal-core-require-dev --with-dependencies`
+    `$ fin composer update acquia/blt drupal/core webflo/drupal-core-require-dev --with-dependencies`
 
     You will then need to commit composer.lock and possibly blt/.schema_version if it changed.
 
