@@ -61,6 +61,10 @@ Before you begin you need to have access to the [Pantheon application](https://d
 
     `$settings['cache']['bins']['page'] = 'cache.backend.null';`
 
+1. Once the site is up and running, run the following command to ensure that local development modules are enabled (e.g., devel, kint and stage_file_proxy):
+
+    `fin drush cim`
+
 ## Next Steps
 
 Use your normal development workflow EXCEPT do **NOT** commit CSS files to the repo.  Push feature branches to the GitHub repo and [create pull requests](https://help.github.com/articles/creating-a-pull-request/) using master as the base branch and your feature branch as the head branch.  After pull requests are merged, switch back to the master branch and git pull.  Then start another feature branch.  Please note that the repo installs git hooks that validate commits follow [Drupal coding standards](https://www.drupal.org/docs/develop/standards/coding-standards).
