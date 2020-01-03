@@ -88,8 +88,12 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
+        "duoconsulting/duo_admin_styles": {
+            "url": "https://github.com/DuoConsulting/duo_admin_styles",
+            "type": "git"
+        },
         "duoconsulting/duo_starter": {
-            "url": "https://github.com/DuoConsulting/duo_starter.git",
+            "url": "https://github.com/DuoConsulting/duo_starter",
             "type": "git"
         },
         "duoconsulting/duo_blocks": {
