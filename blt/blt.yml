@@ -36,6 +36,8 @@ drush:
     local: self
     ci: self
   default_alias: '${drush.aliases.local}'
+behat:
+  web-driver: anything
 modules:
   local:
     enable: []

@@ -5,4 +5,10 @@ vendor
 behat.local.yml
 *.rej
 test_releases
+# Screenshots
+screenshots/*
+!screenshots/.gitkeep
 
+# Reports (html, junit)
+reports
+!reports/.gitkeep

@@ -1,4 +1,5 @@
-# Local overrides to the default profile
+# Default profile.
+# Common settings for all profiles
 default:
   suites:
     default:
@@ -7,27 +8,31 @@ default:
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
-        - FeatureContext:
-            parameters:
-              screenshot_dir: "%paths.base%/screenshots"
-
+        - Drupal\FeatureContext
   extensions:
     Behat\MinkExtension:
+      base_url: http://web
+      browser_name: chrome
       goutte: ~
-      selenium2: ~
+      selenium2:
+        wd_host: http://browser:4444/wd/hub
+        capabilities: { "browser": "chrome", "version": "*" }
       # Use goutte (basic PHP browser, super fast) as the default driver.
       default_session: goutte
       # For real browser testing and tests requiring JS use selenium2 driver.
       # Tag features/scenarious with @javascript to use the selenium2 driver.
       javascript_session: selenium2
-      # Configure browser to be used. Browser must be available on wd_host.
-      # Stick with chrome by default. It's 2x faster than firefox or phantomjs (your results may vary).
-      browser_name: chrome
-      selenium2:
-        wd_host: http://browser:4444/wd/hub
-        capabilities: { "browser": "chrome", "version": "*" }
-
     Drupal\DrupalExtension:
+      blackbox: ~
+      drush:
+        # Site docroot inside Docksal.
+        root: /var/www/docroot
+        alias: '@self'
+      drupal:
+        # Site docroot inside Docksal.
+        drupal_root: /var/www/docroot
+      # API driver [drupal|drush]
+      api_driver: "drupal"
       # Map template regions.
       region_map:
         header: "#header"
@@ -38,18 +43,3 @@ default:
         message_selector: '#messages'
         error_message_selector: '#messages .messages.error'
         success_message_selector: '#messages .messages.status'
-
-    # Behat HTML formatter.
-    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
-      name: html
-      renderer: Twig,Behat2
-      file_name: index
-      print_args: true
-      print_outp: true
-      loop_break: true
-
-docker:
-  extensions:
-    Behat\MinkExtension:
-      goutte: ~
-      selenium2: ~
