@@ -4,20 +4,21 @@
     "description": "Duo project template for Drupal 8 sites built with BLT.",
     "license": "GPL-2.0-only",
     "require": {
-        "php": ">=7.2",
-        "acquia/blt": "^10.1.0",
+        "acquia/blt": "^11.0.0",
         "acquia/drupal-spec-tool": ">=2.0.0",
+        "drupal-composer/drupal-scaffold": "^2.5.4",
         "drupal/core": "^8.8",
         "drupal/features": "^3.8",
-        "duoconsulting/duo_starter": "^8.1"
+        "duoconsulting/duo_starter": "^8.1",
+        "php": ">=7.2"
     },
     "require-dev": {
-        "acquia/blt-require-dev": "^10.0.0-alpha1"
+        "acquia/blt-require-dev": "11.x-dev"
     },
     "config": {
         "sort-packages": true,
         "preferred-install": {
-          "*": "dist"
+            "*": "dist"
         }
     },
     "extra": {
