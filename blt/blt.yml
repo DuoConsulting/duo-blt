@@ -38,6 +38,8 @@ drush:
   default_alias: '${drush.aliases.local}'
 behat:
   web-driver: anything
+  selenium:
+    url: http://browser:4444/wd/hub
 modules:
   local:
     enable: []
