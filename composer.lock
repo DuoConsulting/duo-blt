@@ -5619,11 +5619,11 @@
         },
         {
             "name": "duoconsulting/duo_starter",
-            "version": "8.1.10",
+            "version": "8.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_starter",
-                "reference": "bb4f5f897d5a38659d617e604b43bd2b566dccdd"
+                "reference": "2d54e6b773dfaa1ab43d9a62fee2426cc7e74835"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -5729,7 +5729,7 @@
                 "installation",
                 "profile"
             ],
-            "time": "2020-01-23T22:23:26+00:00"
+            "time": "2020-01-27T18:59:02+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
