@@ -75,6 +75,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * Do not use this setting until after the site is installed.
  */
 // $settings['cache']['bins']['render'] = 'cache.backend.null';
+
 /**
  * Disable Dynamic Page Cache.
  *
@@ -83,6 +84,16 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * in the early stages of development, you may want to disable it.
  */
 // $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+
+/**
+ * Disable the Page Cache.
+ *
+ * Use if you are using a Drupal core version greater than or equal to 8.4.
+ *
+ * See #5 at https://www.drupal.org/node/2598914.
+ */
+// $settings['cache']['bins']['page'] = 'cache.backend.null';
+
 /**
  * Allow test modules and themes to be installed.
  *
