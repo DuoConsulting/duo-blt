@@ -151,3 +151,6 @@ docroot/modules/contrib/**/.gitignore
 web/modules/contrib/**/.git
 web/modules/contrib/**/.github
 web/modules/contrib/**/.gitignore
+
+# BLT 11.2.0 update to support simulated deploys
+/travis_wait*
