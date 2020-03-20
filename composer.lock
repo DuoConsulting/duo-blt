@@ -5620,11 +5620,11 @@
         },
         {
             "name": "duoconsulting/duo_starter",
-            "version": "8.1.11",
+            "version": "8.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DuoConsulting/duo_starter",
-                "reference": "2d54e6b773dfaa1ab43d9a62fee2426cc7e74835"
+                "reference": "574d4efe2a18b4b27bdc4dcf675e1abfe642abff"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -5708,6 +5708,9 @@
                     "drupal/core": "-p2"
                 },
                 "patches": {
+                    "drupal/core": {
+                        "Issue #3045171: Form blocks rendered inside layout builder break save": "https://www.drupal.org/files/issues/2020-02-04/layout-builder-save-issue-3045171-140.patch"
+                    },
                     "drupal/paragraphs": {
                         "Issue #2901390: Integrity constraint violation: 1048 Column 'langcode' cannot be null:": "https://www.drupal.org/files/issues/2019-07-10/paragraphs-set_langcode_widgets-2901390-29.patch"
                     },
@@ -5730,7 +5733,7 @@
                 "installation",
                 "profile"
             ],
-            "time": "2020-01-27T18:59:02+00:00"
+            "time": "2020-03-20T16:28:39+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
