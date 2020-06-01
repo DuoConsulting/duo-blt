@@ -91,7 +91,9 @@ workflows:
             tags:
               ignore: /.*/
             branches:
-              ignore: /^[A-Z0-9]+(?:-[0-9]+)+/
+              ignore:
+                - /^[A-Z0-9]+(?:-[0-9]+)+/
+                - /\//
       - deploy-tag:
           filters:
             tags:
