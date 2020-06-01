@@ -85,13 +85,17 @@ workflows:
       - build:
           filters:
             branches:
-              only: /^[A-Z0-9]+(?:-[0-9]+)+/
+              only:
+                - /^[A-Z0-9]+(?:-[0-9]+)+/
+                - /.*(\/.*)/
       - deploy-branch:
           filters:
             tags:
               ignore: /.*/
             branches:
-              ignore: /^[A-Z0-9]+(?:-[0-9]+)+/
+              ignore:
+                - /^[A-Z0-9]+(?:-[0-9]+)+/
+                - /.*(\/.*)/
       - deploy-tag:
           filters:
             tags:
